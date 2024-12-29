@@ -1,0 +1,24 @@
+services:
+  demo-project-react-quiz:
+    image: node:20-alpine
+    container_name: demo-project-react-quiz
+    hostname: demo-project-react-quiz
+    restart: unless-stopped
+    tty: true
+    working_dir: /usr/local/app
+    volumes:
+      - /mnt/sda1/developments/React Projects/React course/-demo-project-react-quiz:/usr/local/app
+    command: >
+      sh -c '
+        npm i &&
+        npm run dev
+      '
+    ports:
+      - "5173:5173"
+    networks:
+      - demo-project-react-quiz
+
+networks:
+  demo-project-react-quiz:
+    driver: bridge
+    name: demo-project-react-quiz
