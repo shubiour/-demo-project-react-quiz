@@ -30,6 +30,7 @@ const Quiz = () => {
     <div id="quiz">
       <div id="question">
         <QuestionTimer
+          key={activeQuestionIndex}
           timout={10000}
           onTimeout={handleSkipAnsser}
         />
